@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Emperor Marvel</title>
+
+<style>
+:root{
+  --bg:#070b18;
+  --card:#0f1633;
+  --blue:#2f80ff;
+  --red:#e63946;
+  --yellow:#f2c94c;
+  --white:#f5f7fa;
+  --muted:#aab1c5;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",system-ui,sans-serif;}
+
+body{
+  background:radial-gradient(circle at top,#121b45,var(--bg));
+  color:var(--white);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* ===== INTRO ANIMATION ===== */
+#intro{
+  position:fixed;
+  inset:0;
+  background:radial-gradient(circle,#0d1440,#050812);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+  animation:fadeOut 1s ease forwards;
+  animation-delay:3.2s;
+}
+
+.intro-logo{
+  text-align:center;
+  animation:scaleIn 1.6s ease;
+}
+
+.intro-logo h1{
+  font-size:3.5rem;
+  letter-spacing:2px;
+}
+
+.intro-logo span{color:var(--blue);}
+
+.intro-logo p{
+  margin-top:.6rem;
+  color:var(--muted);
+  font-style:italic;
+}
+
+@keyframes scaleIn{
+  from{transform:scale(.7);opacity:0;}
+  to{transform:scale(1);opacity:1;}
+}
+
+@keyframes fadeOut{
+  to{opacity:0;visibility:hidden;}
+}
+
+/* ===== HEADER ===== */
+header{
+  text-align:center;
+  padding:4.5rem 1.5rem 3rem;
+  animation:slideUp 1.2s ease;
+}
+
+@keyframes slideUp{
+  from{transform:translateY(40px);opacity:0;}
+  to{transform:translateY(0);opacity:1;}
+}
+
+/* ===== LOGO ===== */
+.logo-wrap{
+  width:130px;
+  height:130px;
+  margin:0 auto 1rem;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--blue),var(--red));
+  padding:4px;
+}
+
+.logo{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  background:#0b1230;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:2.8rem;
+  font-weight:800;
+  letter-spacing:1px;
+}
+
+.upload-btn{
+  margin-top:.5rem;
+  font-size:.85rem;
+  color:var(--muted);
+  cursor:pointer;
+}
+
+h1{font-size:3rem;}
+h1 span{color:var(--blue);}
+
+.slogan{
+  margin-top:.6rem;
+  color:var(--muted);
+  font-style:italic;
+}
+
+.divider{
+  width:100px;
+  height:4px;
+  margin:1.7rem auto;
+  background:linear-gradient(90deg,var(--blue),var(--red),var(--yellow));
+  border-radius:999px;
+}
+
+main{
+  max-width:1000px;
+  margin:auto;
+  padding:2rem 1.5rem 4rem;
+}
+
+.card{
+  background:linear-gradient(180deg,#131c47,var(--card));
+  border-radius:18px;
+  padding:2.2rem;
+  margin-bottom:2.2rem;
+  border:1px solid rgba(255,255,255,.06);
+  box-shadow:0 25px 50px rgba(0,0,0,.45);
+}
+
+.card h2{
+  margin-bottom:1.1rem;
+  display:flex;
+  gap:.6rem;
+  align-items:center;
+}
+
+.card h2::before{
+  content:"";
+  width:10px;
+  height:10px;
+  background:var(--yellow);
+  border-radius:50%;
+}
+
+.card p{
+  color:var(--muted);
+  line-height:1.7;
+}
+
+.editable{outline:none;cursor:text;}
+
+.links{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:1.1rem;
+}
+
+.link{
+  text-decoration:none;
+  padding:1.2rem 1.4rem;
+  border-radius:14px;
+  background:linear-gradient(135deg,#1a2358,#161f4a);
+  color:var(--white);
+  border-left:4px solid var(--blue);
+  transition:.25s ease;
+}
+
+.link span{
+  display:block;
+  font-size:.85rem;
+  color:var(--muted);
+}
+
+.link:hover{
+  transform:translateY(-5px);
+  box-shadow:0 14px 35px rgba(47,128,255,.3);
+}
+
+.red{border-left-color:var(--red);}
+.yellow{border-left-color:var(--yellow);}
+
+footer{
+  text-align:center;
+  padding:2rem 1rem;
+  color:var(--muted);
+  font-size:.85rem;
+}
+</style>
+</head>
+
+<body>
+
+<!-- INTRO -->
+<div id="intro">
+  <div class="intro-logo">
+    <h1>Emperor <span>Marvel</span></h1>
+    <p>Elite D Unmatched</p>
+  </div>
+</div>
+
+<header>
+  <div class="logo-wrap">
+    <div class="logo">EM</div>
+  </div>
+
+  <label class="upload-btn">
+    Change Profile Picture
+    <input type="file" id="upload" hidden accept="image/*">
+  </label>
+
+  <h1>Emperor <span>Marvel</span></h1>
+  <p class="slogan">Elite D Unmatched</p>
+  <div class="divider"></div>
+</header>
+
+<main>
+
+<section class="card">
+  <h2>About (Editable)</h2>
+  <p class="editable" contenteditable="true">
+    Emperor Marvel is a premium professional brand focused on business deals,
+    partnerships, and elite opportunities. Edit anytime.
+  </p>
+</section>
+
+<section class="card">
+  <h2>Official Socials</h2>
+  <div class="links">
+    <a class="link" href="https://instagram.com/emperorbilli" target="_blank">
+      Instagram <span>@emperorbilli</span>
+    </a>
+
+    <a class="link red" href="#" target="_blank">
+      Facebook <span>D Em Peror</span>
+    </a>
+
+    <a class="link yellow" href="https://tiktok.com/@Mr.regular80" target="_blank">
+      TikTok <span>@Mr.regular80</span>
+    </a>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Business Contact</h2>
+  <p>📞 <a href="https://wa.me/2348155238936" style="color:white;">08155238936</a></p>
+  <p>✉️ <a href="mailto:gabrielnice112@gmail.com" style="color:white;">gabrielnice112@gmail.com</a></p>
+</section>
+
+</main>
+
+<footer>
+  © Emperor Marvel — All Rights Reserved
+</footer>
+
+<script>
+const upload=document.getElementById("upload");
+const logo=document.querySelector(".logo");
+
+const saved=localStorage.getItem("logoImg");
+if(saved){
+  logo.style.background=`url(${saved}) center/cover`;
+  logo.textContent="";
+}
+
+upload.addEventListener("change",e=>{
+  const file=e.target.files[0];
+  if(!file)return;
+  const r=new FileReader();
+  r.onload=()=>{
+    logo.style.background=`url(${r.result}) center/cover`;
+    logo.textContent="";
+    localStorage.setItem("logoImg",r.result);
+  };
+  r.readAsDataURL(file);
+});
+</script>
+
+</body>
+</html>
